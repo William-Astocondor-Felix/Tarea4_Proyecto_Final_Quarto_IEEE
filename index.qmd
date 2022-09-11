@@ -2,7 +2,7 @@
 title: "Tarea_4_Prj_Quarto"
 subtitle: "Proyecto Final: Regresion Logistica: RMarkDown - Python - Sklearn"
 date: last-modified
-description: El presente documento muestra como realizar un Modelo Logistico, primero exponemos una teoria basica del Modelo Logistico y luego el codigo para realizar un programa basico para reconocer los caracteres de un dataFrame Ejemplo "DIGITIS" de Package Sklearn en el lenguaje Python. Usamos las librerias Matplotlib , Sklearn de Python y Quarto - RMarkdown para mostrar los resultados.
+description: El presente documento muestra como realizar un Modelo Logistico, primero exponemos una teoria basica del Modelo Logistico y luego el codigo para realizar un programa basico para reconocer los caracteres de un dataFrame Ejemplo "DIGITS" de Package Sklearn en el lenguaje Python. Usamos las librerias Matplotlib , Sklearn de Python y Quarto - RMarkdown para mostrar los resultados.
 author: 
    name: William Astocóndor Félix
    url: https://www.linkedin.com/in/william-astocondor-felix-5a850220/
