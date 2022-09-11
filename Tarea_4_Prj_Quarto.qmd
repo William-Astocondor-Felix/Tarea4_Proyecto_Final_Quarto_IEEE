@@ -1,0 +1,359 @@
+---
+title: "Tarea_4_Prj_Quarto"
+subtitle: "Proyecto Final: Regresion Logistica: RMarkDown - Python - Sklearn"
+date: last-modified
+description: El presente documento muestra como realizar un Modelo Logistico, primero exponemos una teoria basica del Modelo Logistico y luego el codigo para realizar un programa basico para reconocer los caracteres de un dataFrame Ejemplo "DIGITIS" de Package Sklearn en el lenguaje Python. Usamos las librerias Matplotlib , Sklearn de Python y Quarto - RMarkdown para mostrar los resultados.
+author: 
+   name: William Astocóndor Félix
+   url: https://www.linkedin.com/in/william-astocondor-felix-5a850220/
+   affiliation: Quarto Blog
+   affiliation-url: https://quarto.org/docs/blog/
+title-block-banner: "#808080"
+format: 
+  html:
+    theme: journal
+    toc: true
+    code-fold: true
+    code-tools: true
+    css: "style_009.css"
+bibliography: biblio_008.bib
+csl: apa.csl
+link-citations: yes  
+jupyter: python3
+lang: Es-es
+---
+
+<!--
+---
+
+output:
+   html_document:
+    code_download: TRUE
+    toc: TRUE
+    toc_float: TRUE
+---
+-->
+
+<!--
+-->
+
+<!-- ojo chunk options :: mostrar nda y run code::: , INCLUDE=FALSE -->
+
+<!--
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE)
+```
+-->
+
+
+# Regresión y clasificación en Machine Learning
+
+**Machine Learning** es un subcampo de las ciencias de la computación y la **inteligencia artificial**, que se sirve de **algoritmos** que permiten a las máquinas aprender imitando la forma en la que los seres humanos desarrollan acciones.
+
+Los métodos de **clasificación y regresión** se encuentran dentro de una rama del **Machine Learning** conocida como aprendizaje automático supervisado. Te explicamos qué son y en qué se diferencian.
+
+
+# Grupos de algoritmos en Machine Learning
+
+El Machine Learning se fundamenta en cuatro grandes grupos de algoritmos:
+
+- Machine Learning supervisado
+- Machine Learning no supervisado
+- Machine Learning semisupervisado
+- Machine Learning por refuerzo
+
+
+## Machine Learning supervisado 
+
+El Machine Learning/aprendizaje supervisado trabaja con datos etiquetados, es decir, datos para los que ya conoce la respuesta de destino. En base a un histórico, trata de buscar patrones relacionándolos con un campo especial, llamado objetivo, dadas unas variables de entrada.
+
+A través de dicho histórico de datos, el algoritmo puede aprender a asignar una etiqueta de salida o función que le permita predecir el atributo objetivo para una nueva acción.
+
+El aprendizaje supervisado se utiliza en dos tipos de problemas: clasificación (por ejemplo, detección de fraude) y regresión (por ejemplo, predicciones meteorológicas).
+
+
+
+
+## Machine Learning no supervisado
+
+El Machine Learning/aprendizaje no supervisado está formado por datos de entrada, pero no se conocen los datos de salida, es decir, no cuenta con un conjunto de datos etiquetados para las pruebas de entrenamiento. Este modelo suele utilizarse como método exploratorio o de análisis.
+
+Los usos más comunes de este tipo de aprendizaje son: problemas de clustering, agrupamientos de co-ocurrencia o profiling de datos.
+
+
+## Machine Learning semisupervisado
+
+El Machine Learning/aprendizaje semisupervisado es una técnica de aprendizaje automático que utiliza datos de entrenamiento tanto etiquetados como no etiquetados.
+
+## Machine Learning por refuerzo
+
+Por último, el Machine Learning/aprendizaje por refuerzo se basa en un sistema de prueba y error. Su objetivo principal es generar un aprendizaje que permita obtener una recompensa específica a medio-largo plazo.
+
+
+
+# Técnicas de clasificación 
+
+Las técnicas de clasificación son una parte esencial de Machine Learning, ya que aproximadamente el 70% de los problemas son de clasificación. Hay muchos algoritmos de clasificación, pero la Regresión Logística es común y es un método de regresión útil para resolver problemas de clasificación binaria.
+
+<center>      <!--HTML Tags ## etiquetas html --> 
+![](TecnicaClasificacion.jpg){width=500}
+</center>
+
+# La Regresión Logística 
+
+La Regresión Logística es un método estadístico para predecir clases binarias. El resultado o variable objetivo es de naturaleza dicotómica. Dicotómica significa que solo hay dos clases posibles. Por ejemplo, se puede utilizar para problemas de detección de cáncer o calcular la probabilidad de que ocurra un evento.
+
+La Regresión Logística es uno de los algoritmos de Machine Learning más simples y más utilizados para la clasificación de dos clases. Es fácil de implementar y se puede usar como línea de base para cualquier problema de clasificación binaria. La Regresión Logística describe y estima la relación entre una variable binaria dependiente y las variables independientes.
+
+
+<center>      <!--HTML Tags ## etiquetas html --> 
+![](RegresionLogistica_1.jpg){width=500}
+</center>
+
+En general, este algoritmo se puede utilizar para varios problemas de clasificación, como la detección de spam, predicción de la diabetes, si un cliente determinado comprará un producto en particular o si se irá con la competencia, hay muchos más ejemplos en donde se puede aplicar este algoritmo.
+
+Por su parte la Regresión Logística lleva el nombre de la función utilizada en el núcleo del método, la función logística es también llamada función Sigmoide. Esta función es una curva en forma de S que puede tomar cualquier número de valor real y asignar a un valor entre 0 y 1.
+
+<center>      <!--HTML Tags ## etiquetas html --> 
+![](RegresionLogistica_2.jpg){width=500}
+</center>
+
+Si la curva va a infinito positivo la predicción se convertirá en 1, y si la curva pasa el infinito negativo, la predicción se convertirá en 0. Si la salida de la función Sigmoide es mayor que 0.5, podemos clasificar el resultado como 1 o SI, y si es menor que 0.5 podemos clasificarlo como 0 o NO. Por su parte si el resultado es 0.75, podemos decir en términos de probabilidad como, hay un 75% de probabilidades de que el paciente sufra cáncer.
+
+Pero veamos este algoritmo de manera matemática, la ecuación de Regresión Lineal es está:
+
+<center>      <!--HTML Tags ## etiquetas html --> 
+![](RegresionLogistica_3.jpg){width=500}
+</center>
+
+Donde “y” es la variable dependiente y “x1, x2, …” son variables independientes o explicativas.
+
+
+Por su parte, la ecuación de la función Sigmoide es la siguiente:
+
+<center>      <!--HTML Tags ## etiquetas html --> 
+![](RegresionLogistica_4.jpg){width=500}
+</center>
+
+Entonces si aplicamos la función Sigmoide en la Regresión Lineal nos quedaría algo como esto:
+
+$$
+p=\frac{1}{1+e^{-\left(a_{1} x_{1}+a_{2} x_{2}+a_{n} x_{n}+b\right)}}
+$$
+
+# Diferencias entre Regresión Lineal y Regresión Logística
+
+La Regresión Lineal proporciona una salida continua, pero la Regresión Logística proporciona una salida discreta. Un ejemplo de una salida continua es conocer el porcentaje de probabilidad de lluvia o el precio de una acción. Un ejemplo de una salida discreta, por su parte, es conocer si va a llover o no, o si el precio de una acción subirá o no.
+
+
+# Tipos de Regresión Logística
+
+- Regresión Logística Binaria: la variable objetivo tiene solo dos resultados posible, Llueve o NO Llueve, Sube o Baja.
+- Regresión Logística Multinomial: la variable objetivo tiene tres o más categorías nominales, como predecir el tipo de vino.
+- Regresión Logística Ordinal: la variable objetivo tiene tres o más categorías ordinales, como clasificar un restaurante o un producto del 1 al 5.
+
+
+En resumen la Regresión Logística es el algoritmo de Machine Learning más famoso después de la Regresión Lineal, es un algoritmo simple que se puede utilizar para tareas de clasificación binarias y multivariadas.
+
+<center>
+<iframe width="200" height="100" src="https://www.youtube.com/embed/Z-bFsyiQxb0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external=1></iframe>
+
+</center>
+
+
+
+# Ejemplo de Regresion Logistica usando Python - Sklearn
+
+En esta seccion explicaremos la parte práctica del algoritmo de Regresión Logística, en donde desarrollaremos un modelo para predecir el numero en una imagen de 8x8.
+
+Para este análisis vamos a utilizar uno de los dataset que se encuentra disponible en la librería scikit-learn y es el correspondiente a ***digits ***
+
+Si no lo sabias dentro de la librería de Python scikit-learn dispones de varios dataset, con los que puedes practicar tus conocimientos de Machine Learning. Puedes encontrar tanto para problemas de regresión, como para problemas de clasificación.
+
+
+## Codigo y Resultados Python: 
+A continuacion comentamos cada seccion del codigo de python
+
+
+Primero cargamos los modulos y dataset que usara para el analisis.
+
+
+```{python Import library and dataframe}
+#| echo: True
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_digits
+
+digits = load_digits()
+```
+
+
+Se imprime un descriptivo con mas detalle acerca del dataset ***digits***
+
+```{python digits}
+#| echo: True
+#| fig-align: center
+#| fig-cap: "Descriptivo de DataFrame DIGITS"
+print(digits.DESCR)
+
+```
+
+Visualicemos algunas componentes de nuestra data.
+Veamos las primeras 5 componentes de digits.images y digits.target.
+
+```{python Simbolos 1}
+#| echo: True
+#| fig-align: center
+plt.figure(figsize = (10,2))
+for i in range(0,5):
+    plt.subplot(1,5, i+1)
+    plt.imshow(digits.images[i], cmap = plt.cm.gray)
+    plt.title("data : %i \n" %digits.target[i], fontsize = 9)
+```
+
+
+
+Veamos las componentes 5 a 9 de digits.images y digits.target.
+
+
+```{python Simbolos 2}
+#| echo: True
+#| fig-align: center
+plt.figure(figsize = (10,2))
+for i in range(0,5):
+    j=int(i+5)
+    plt.subplot(1,5, i+1)
+    plt.imshow(digits.images[j], cmap = plt.cm.gray)
+    plt.title("data : %i \n" %digits.target[j], fontsize = 9)
+```
+
+
+
+Ahora vamos a proceder a definir las variables de “x” y “y” que vamos emplear en nuestro modelo.
+Para **“x”** vamos a utilizar todas las variables que se encuentran dentro de ***digits.data***, Por su parte, **“y”** será igual a los datos correspondientes a ***digits.target***.
+
+
+```{python }
+#| echo: True
+#| fig-align: center
+
+# datos numericos de la imagen, en un formato lineal,como 64 variables independientes
+digits["data"][0]
+
+```
+
+
+
+```{python}
+#| echo: True
+#| fig-align: center
+
+# resultado , variable objetivo , label , este seria mi variable dependiente
+digits.target[0]
+
+```
+
+
+Definido **“x”** y **“y”** ya podemos realizar la separación correspondiente a los datos de prueba y entrenamiento para ello importamos la respectiva librería y procedemos a utilizar train_test_split para separar los datos.
+
+Para la separación de los datos, vamos a tomar un 25% de los mismos para utilizarlos como prueba una vez que hayamos obtenido el modelo.
+
+```{python Dataset Train y Test}
+#| echo: True
+
+# Construimos el dataset train y test
+from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test = train_test_split(digits.data, digits.target,
+                                                    test_size=0.25,
+                                                    random_state= 666)
+
+```
+
+
+Ya en este momento tenemos nuestros datos listos para empezar a construir el modelo.
+
+Lo primero que debemos hacer es importar LogisticRegression que se encuentra dentro de la librería linear_model, y a su vez definimos el algoritmo **"logistic1"** .
+
+```{python Definicion de Algoritmo}
+#| echo: True
+
+#Defino el algoritmo "logistic1" a utilizar
+from sklearn.linear_model import LogisticRegression
+logistic1 = LogisticRegression(max_iter = 2000, 
+                               verbose = 1, 
+                               tol = 1e-6)
+
+```
+
+
+
+Seguidamente entrenamos el modelo utilizando la instrucción fit y los datos tanto de **“X”** como de **“y”** de entrenamiento.
+
+```{python }
+#| echo: True
+
+#Entrenando el modelo
+logistic1.fit(x_train, y_train)
+
+```
+
+Y finalmente realizamos una predicción, utilizando la instrucción predict y los datos de prueba.
+
+```{python }
+#| echo: True
+
+# Hagamos la prediccion para todos los datos de prueba 
+predictions = logistic1.predict(x_test)
+
+```
+
+
+Calculamos la precisión del algoritmo **"logistic1"**
+
+
+
+```{python Score }
+#| echo: True
+
+# score
+score = logistic1.score(x_test, y_test)
+score
+
+```
+
+
+Ademas calculamos y visualizamos la Matriz de Confusion.
+
+
+```{python CM }
+#| echo: True
+
+# Matriz de confusion 
+from sklearn import metrics
+cm = metrics.confusion_matrix(y_test, predictions)
+cm
+```
+
+
+El resultado del score y Matriz de confusion confirman que el modelo obtenido es bueno.
+
+
+```{python Plot_CM ,  fig.width=10, fig.height=6 }
+#| echo: True
+#| fig-align: center
+
+# Visualicemos la matriz de confusion
+import seaborn as sns
+plt.figure(figsize = (6.5,6.5))
+sns.heatmap(cm, annot = True, fmt = ".1f",
+            linewidths=0.5, square = True,
+            cmap = "Blues_r")
+plt.ylabel("Datos Reales (y_test)", fontsize = 9)
+plt.xlabel("Predicciones del modelo ", fontsize = 9)
+plt.title("Score {0}".format(score), fontsize = 9)
+
+```
+---
+
+
+
